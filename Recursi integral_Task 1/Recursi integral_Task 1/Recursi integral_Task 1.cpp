@@ -6,17 +6,17 @@
 
 FILE *f = fopen("Out.mxn", "w");
 
-long double integral1(int n) {
-	long double ret;
+float integral1(int n) {
+	float ret;
 	if (n > 0)
 	{
-		ret = 1.0 - integral1(n - 1);
+		ret = 1.0 - n * integral1(n - 1);
 	}
 	else
 	{
 		ret = 1.0 - (1.0 / M_E);
 	}
-	fprintf(f,"I%-2d = %.5lf\n", n, ret);
+	fprintf(f,"I%-2d = %.5f\n", n, ret);
 	return ret;
 }
 
@@ -24,7 +24,7 @@ long double integral1_2(int n) {
 	long double ret;
 	if (n > 0) 
 	{
-		ret = 1.0 - integral1_2(n - 1);
+		ret = 1.0 - n * integral1_2(n - 1);
 	}
 	else
 	{ 
